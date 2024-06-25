@@ -1,3 +1,5 @@
+<img src="https://github.com/ismaelgiovannetti/engim/assets/115568732/9d2f7747-7e09-473c-af3d-a7cf7c235ebd" alt="Design sans titre" width="250" />
+
 # engim : Graphic Engine Library for C# Windows Form Applications
 
 ## Description
