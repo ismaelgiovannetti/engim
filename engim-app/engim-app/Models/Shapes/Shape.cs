@@ -8,7 +8,7 @@ namespace engim_app.Models.Shapes
 {
     abstract class Shape
     {
-        private Color Color { get; set; }
+        public Color Color { get; private set; }
         private double? Mass { get; set; }
         private bool? Gravity { get; set; }
         private bool? Collision { get; set; }

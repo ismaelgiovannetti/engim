@@ -45,7 +45,7 @@ namespace engim_app.Models
             switch (shape)
             {
                 case _Shapes.Point:
-                    Shape = new Point();
+                    Shape = new Point(this);
                     break;
                 case _Shapes.Segment:
                     Shape = new Segment();
@@ -59,6 +59,37 @@ namespace engim_app.Models
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        public void Draw(Panel panel)
+        {
+            if(Shape == null)
+            {
+                throw new NullReferenceException();
+            }
+
+            Pen _ = new Pen(Shape.Color);
+            var g = panel.CreateGraphics();
+
+            switch (Shape)
+            {
+                case Point point:
+                    g.DrawRectangle(_, point.Position.X, point.Position.Y, 1, 1);
+                    break;
+                case Segment segment:
+                    g.DrawLine(_, segment.A.Position.X, segment.A.Position.Y, segment.B.Position.X, segment.B.Position.Y);
+                    break;
+                case Polygon polygon:
+                    g.DrawPolygon(_, polygon.Vertices.Select(p => new System.Drawing.Point(p.Position.X, p.Position.Y)).ToArray());
+                    break;
+                case Ellipse ellipse:
+                    g.DrawEllipse(_, ellipse.Center.Position.X, ellipse.Center.Position.Y, ellipse.Radius, ellipse.Radius);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            g.Dispose();
         }
     }
 }

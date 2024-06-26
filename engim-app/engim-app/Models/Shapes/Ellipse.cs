@@ -9,7 +9,7 @@ namespace engim_app.Models.Shapes
     internal class Ellipse : Shape
     {
         public Point Center { get; set; }
-        public double Radius { get; set; }
+        public int Radius { get; set; }
 
         public Ellipse()
         {

@@ -14,6 +14,11 @@ namespace engim_app.Models.Shapes
             Position = new Position();
         }
 
+        public Point(Object _) : this()
+        {
+            return;
+        }
+
         public Point(Shape caller) : base(caller)
         {
             Position = new Position();

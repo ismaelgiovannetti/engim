@@ -1,5 +1,6 @@
 using engim_app.Models;
 using engim_app.Models.Shapes;
+using System.Runtime.CompilerServices;
 using Object = engim_app.Models.Object;
 
 namespace engim_app
@@ -14,12 +15,6 @@ namespace engim_app
         {
             ApplicationConfiguration.Initialize();
             Application.Run(new main());
-        }
-
-        private static void Initialize()
-        {
-            Object o = new Object();
-            o.SetShape(_Shapes.Point);
         }
     }
 }
