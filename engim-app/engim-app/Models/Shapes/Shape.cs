@@ -9,14 +9,12 @@ namespace engim_app.Models.Shapes
     abstract class Shape
     {
         public Color Color { get; private set; }
-        private double? Mass { get; set; }
         private bool? Gravity { get; set; }
         private bool? Collision { get; set; }
 
         protected Shape()
         {
             Color = Color.FromArgb(0, 0, 0);
-            Mass = 0;
             Gravity = false;
             Collision = false;
         }
@@ -24,7 +22,6 @@ namespace engim_app.Models.Shapes
         protected Shape(Shape caller)
         {
             Color = caller.Color;
-            Mass = null;
             Gravity = null;
             Collision = null;
         }
@@ -34,14 +31,14 @@ namespace engim_app.Models.Shapes
             Color = Color.FromArgb(r, g, b);
         }
 
-        public void SetMass(double mass)
-        {
-            Mass = mass;
-        }
-
         public void SetGravity(bool gravity)
         {
             Gravity = gravity;
+        }
+
+        public void SetCollision(bool collision)
+        {
+            Collision = collision;
         }
     }
 }

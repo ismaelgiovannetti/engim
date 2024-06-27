@@ -1,5 +1,4 @@
 using engim_app.Models;
-using engim_app.Models.Shapes;
 using Object = engim_app.Models.Object;
 
 namespace engim_app
@@ -13,9 +12,15 @@ namespace engim_app
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            Object o = new Object();
+            Object o = new Object("myEllipse");
             o.SetShape(_Shapes.Ellipse);
-            o.Draw(this.panel1);
+            o.SetPanel(panel1);
+            o.Display();
+            o.SetColor(Color.Red);
+            o.SetGravity(true);
+
+            Scenario s = new Scenario("myScenario");
+            s.AddObject(o);
         }
     }
 }
